@@ -41,13 +41,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-@RequestMapping("/hello")
-String hello(Map<String, Object> model) {
-    RelativisticModel.select();
-    Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
-    model.put("science", "E=mc^2: 12 GeV = " + m.toString());
-    return "hello";
-}
+
 
 @Controller
 @SpringBootApplication
@@ -99,5 +93,12 @@ public class Main {
       return new HikariDataSource(config);
     }
   }
-
+@RequestMapping("/hello")
+String hello(Map<String, Object> model) {
+    RelativisticModel.select();
+    Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
+    model.put("science", "E=mc^2: 12 GeV = " + m.toString());
+    return "hello";
+}
+    
 }
